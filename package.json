@@ -1,6 +1,7 @@
 {
   "name": "flip-card-grid",
   "version": "0.1.0",
+  "homepage": "https://delbertina.github.io/FlipCardGrid",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -24,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set \"BUILD_PATH=docs\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
