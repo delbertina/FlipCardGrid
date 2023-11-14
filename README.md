@@ -1,7 +1,8 @@
 # FlipCardGrid
 A grid of cards that flip around. For use with my version of the GMM flavor matching game.
 
-#
+# >>> [Try it Out](https://delbertina.github.io/FlipCardGrid/) <<<
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
