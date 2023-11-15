@@ -1,39 +1,49 @@
 .two-team-guessing-toolbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: goldenrod;
+  color: #23272e;
 }
 
 .two-team-guessing-toolbar-group {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.two-team-guessing-toolbar-text-button > button {
+  padding: 0;
+  font-size: x-large;
 }
 
 .two-team-guessing-toolbar-group-left {
-    justify-content: start;
+  justify-content: start;
 }
 
 .two-team-guessing-toolbar-group-middle {
-    justify-content: center;
+  justify-content: center;
 }
 
 .two-team-guessing-toolbar-group-right {
-    justify-content: end;
+  justify-content: end;
 }
 
 .two-team-guessing-grid {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1vw;
+  margin: 1vw;
 }
 
 .two-team-guessing-grid-row {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100%;
+  gap: 1vw;
 }
 
 .two-team-guessing-grid-row-item {
-    flex: 1
+  flex: 1;
 }

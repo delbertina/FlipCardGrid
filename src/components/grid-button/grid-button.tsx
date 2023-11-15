@@ -4,20 +4,22 @@ import React from "react";
 import { GridItem } from "../../types/grid-item";
 
 export interface GridButtonProps {
-  buttonData: GridItem,
+  buttonData: GridItem;
   buttonClicked: () => void;
 }
 
 function GridButton(props: GridButtonProps) {
   return (
-    <Button
-      variant="contained"
-      onClick={() => props.buttonClicked()}
-      className="action-button"
-      color={"info"}
-    >
-      {props.buttonData.title}
-    </Button>
+    <div className="grid-button">
+      <Button
+        variant="contained"
+        onClick={() => props.buttonClicked()}
+        color="primary"
+      >
+        <strong>{props.buttonData.order}</strong><hr />
+        {props.buttonData.title}
+      </Button>
+    </div>
   );
 }
 
