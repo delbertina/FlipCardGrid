@@ -68,3 +68,8 @@ export const TwoTeamGuessingGridItems: GridItem[][] = [
         }
     ]
 ]
+
+export enum TwoTeamGuessingTeams {
+    RED = "RED",
+    BLUE = "BLUE"
+}

@@ -1,6 +1,5 @@
 import "./grid-button.scss";
 import { Button } from "@mui/material";
-import React from "react";
 import { GridItem } from "../../types/grid-item";
 
 export interface GridButtonProps {
@@ -16,7 +15,7 @@ function GridButton(props: GridButtonProps) {
         onClick={() => props.buttonClicked()}
         color="primary"
       >
-        <strong>{props.buttonData.order}</strong><hr />
+        <strong>{props.buttonData.order}</strong>
         {props.buttonData.title}
       </Button>
     </div>
