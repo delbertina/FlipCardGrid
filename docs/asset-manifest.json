@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/FlipCardGrid/static/css/main.9643d445.css",
-    "main.js": "/FlipCardGrid/static/js/main.8c4a76e5.js",
+    "main.css": "/FlipCardGrid/static/css/main.15f4a922.css",
+    "main.js": "/FlipCardGrid/static/js/main.78bdcefe.js",
     "index.html": "/FlipCardGrid/index.html",
-    "main.9643d445.css.map": "/FlipCardGrid/static/css/main.9643d445.css.map",
-    "main.8c4a76e5.js.map": "/FlipCardGrid/static/js/main.8c4a76e5.js.map"
+    "main.15f4a922.css.map": "/FlipCardGrid/static/css/main.15f4a922.css.map",
+    "main.78bdcefe.js.map": "/FlipCardGrid/static/js/main.78bdcefe.js.map"
   },
   "entrypoints": [
-    "static/css/main.9643d445.css",
-    "static/js/main.8c4a76e5.js"
+    "static/css/main.15f4a922.css",
+    "static/js/main.78bdcefe.js"
   ]
 }
