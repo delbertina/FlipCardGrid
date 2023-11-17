@@ -79,6 +79,15 @@
   }
   .flippable-grid-button-back  .grid-button > button {
     background: lightgray;
+  }
+}
+
+.two-team-guessing-grid-row-item {
+  .flippable-grid-button-front  .grid-button > button {
+    color: white;
+    text-shadow: black 1px 0 10px;
+  }
+  .flippable-grid-button-back  .grid-button > button {
     color: black;
     text-shadow: white 1px 0 10px;
   }
