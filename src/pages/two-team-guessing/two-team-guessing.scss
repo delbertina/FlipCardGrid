@@ -5,6 +5,16 @@
   flex-direction: column;
 }
 
+.two-team-guessing-settings-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.two-team-guessing-settings-title {
+  margin-top: unset;
+}
+
 .two-team-guessing-toolbar {
   display: flex;
   flex-direction: row;

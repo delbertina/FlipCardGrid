@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.scss';
-import TwoTeamGuessing from './pages/two-team-guessing/two-team-guessing';
+import "./App.scss";
+import TwoTeamGuessing from "./pages/two-team-guessing/two-team-guessing";
 
 function App() {
   return (
     <div className="App">
-      <div className='App-body'>
-      <TwoTeamGuessing />
+      <div className="App-body">
+        <TwoTeamGuessing />
       </div>
     </div>
   );

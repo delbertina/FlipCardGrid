@@ -1,15 +1,17 @@
 import "./two-team-guessing.scss";
 import React from "react";
-import { Button, IconButton, Toolbar } from "@mui/material";
+import { Box, Button, IconButton, SwipeableDrawer, Toolbar } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import ClearIcon from "@mui/icons-material/Clear";
 import { FlippableGridItem } from "../../types/grid-item";
 import {
   TwoTeamGuessingGridItems,
   TwoTeamGuessingTeams,
 } from "./two-team-guessing-data";
 import FlippableGridButton from "../../components/flippable-grid-button/flippable-grid-button";
+import { grey } from "@mui/material/colors";
 
 interface TwoTeamGuessingPageProps {}
 
@@ -21,6 +23,7 @@ interface TwoTeamGuessingPageState {
   redSelected: number;
   blueSelected: number;
   selecting?: TwoTeamGuessingTeams;
+  isSettingsOpen: boolean;
 }
 
 class TwoTeamGuessing extends React.Component<
@@ -38,6 +41,7 @@ class TwoTeamGuessing extends React.Component<
       redSelected: -1,
       blueSelected: -1,
       selecting: undefined,
+      isSettingsOpen: false,
     };
   }
 
@@ -105,9 +109,93 @@ class TwoTeamGuessing extends React.Component<
     this.setState({ blueScore: newValue < 0 ? 0 : newValue });
   }
 
+  private handleToggleSettings(): void {
+    this.setState({ isSettingsOpen: !this.state.isSettingsOpen });
+  }
+
+  private handleResetSelections(): void {
+    this.setState({
+      redSelected: -1,
+      blueSelected: -1,
+    });
+    this.handleToggleSettings();
+  }
+
+  private handleToggleAllCards(): void {
+    if (this.state.flippedItems.length) {
+      this.setState({flippedItems: []});
+    } else {
+      this.setState({ flippedItems: Array.from(Array(15).keys())})
+    }
+    this.handleToggleSettings();
+  }
+
+  private handleTotalReset(): void {
+    console.log('So you accidentally reset the whole game ...');
+    console.log("Here's the game state before you did that, you're welcome!");
+    console.log("Red Score: ", this.state.redScore, " :: Blue Score: ", this.state.blueScore);
+    this.setState({
+      redSelected: -1,
+      blueSelected: -1,
+      redScore: 0,
+      blueScore: 0,
+      flippedItems: []
+    });
+    this.handleToggleSettings();
+  }
+
   render() {
     return (
       <div className="two-team-guessing">
+        <SwipeableDrawer
+          anchor={"top"}
+          open={this.state.isSettingsOpen}
+          onClose={() => this.handleToggleSettings()}
+          onOpen={() => this.handleToggleSettings()}
+        >
+          <Box
+            sx={{
+              backgroundColor: grey[800],
+              padding: 2,
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            <div>
+              <IconButton
+                aria-label="close"
+                color="warning"
+                onClick={() => this.handleToggleSettings()}
+              >
+                <ClearIcon />
+              </IconButton>
+            </div>
+            <h4 className="two-team-guessing-settings-title">Super Secret Settings</h4>
+            <div className="two-team-guessing-settings-button-container">
+              <Button
+                variant="contained"
+                color="info"
+                onClick={() => this.handleResetSelections()}
+              >
+                Reset Selections
+              </Button>
+              <Button
+                variant="contained"
+                color="info"
+                onClick={() => this.handleToggleAllCards()}
+              >
+                Toggle All Cards
+              </Button>
+              <Button
+                variant="contained"
+                color="info"
+                onClick={() => this.handleTotalReset()}
+              >
+                Total Reset
+              </Button>
+            </div>
+          </Box>
+        </SwipeableDrawer>
         <Toolbar className="two-team-guessing-toolbar">
           <div className="two-team-guessing-toolbar-group two-team-guessing-toolbar-group-left">
             <IconButton
@@ -135,7 +223,7 @@ class TwoTeamGuessing extends React.Component<
             </IconButton>
           </div>
           <div className="two-team-guessing-toolbar-group two-team-guessing-toolbar-group-middle">
-            <IconButton aria-label="settings" onClick={() => {}}>
+            <IconButton aria-label="settings" onClick={() => this.handleToggleSettings()}>
               <SettingsIcon />
             </IconButton>
           </div>
