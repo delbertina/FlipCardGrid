@@ -64,13 +64,13 @@
 .two-team-guessing-grid-row-item {
   flex: 1;
 
-  > .grid-button > button {
-    border: 2px solid gray;
+   .grid-button > button {
+    border: 5px solid gray;
   }
 }
 
 .two-team-guessing-grid-row-item-selecting  .grid-button > button {
-  border: 2px solid goldenrod;
+  border: 5px solid goldenrod;
 }
 
 .two-team-guessing-grid-item-unselected {
@@ -79,6 +79,8 @@
   }
   .flippable-grid-button-back  .grid-button > button {
     background: lightgray;
+    color: black;
+    text-shadow: white 1px 0 10px;
   }
 }
 

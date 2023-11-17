@@ -5,7 +5,34 @@
     width: 100%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    .grid-button-img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    img {
+      display: block;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      box-sizing: border-box;
+    }
+  }
+    .grid-button-title {
+      position: absolute;
+      font-weight: bold;
+      font-size: x-large;
+    }
+    .grid-button-subtitle {
+      font-style: italic;
+      font-size: small;
+    }
   }
 }

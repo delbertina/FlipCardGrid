@@ -8,3 +8,8 @@ export interface FlippableGridItem {
     front: GridItem;
     back: GridItem;
 }
+
+export const getImgAssetPath = (fileName: string): string => {
+    const assetURL = "/imgs/";
+    return process.env.PUBLIC_URL + assetURL + fileName + "";
+  };
