@@ -17,6 +17,7 @@ function FlippableGridButton(props: FlippableGridButtonProps) {
   const ref = useRef(null);
 
   useEffect(() => {
+    console.log('button effect', props.isButtonFlipped);
     setIsFlipped((current) => !current);
   }, [props.isButtonFlipped])
 

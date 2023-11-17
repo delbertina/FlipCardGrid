@@ -64,7 +64,7 @@ class TwoTeamGuessing extends React.Component<
   }
 
   private getIsFlipped(index: number): boolean {
-    return !(this.state.flippedItems.indexOf(index) > -1);
+    return this.state.flippedItems.indexOf(index) > -1;
   }
 
   private toggleSelecting(team?: TwoTeamGuessingTeams): void {
