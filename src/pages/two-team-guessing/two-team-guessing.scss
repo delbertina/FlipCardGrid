@@ -1,3 +1,10 @@
+.two-team-guessing {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .two-team-guessing-toolbar {
   display: flex;
   flex-direction: row;
@@ -52,22 +59,32 @@
   }
 }
 
-.two-team-guessing-grid-row-item-selecting > .grid-button > button {
+.two-team-guessing-grid-row-item-selecting  .grid-button > button {
   border: 2px solid goldenrod;
 }
 
-.two-team-guessing-grid-item-unselected > .grid-button > button {
-  background: gray;
+.two-team-guessing-grid-item-unselected {
+  .flippable-grid-button-front  .grid-button > button {
+    background: gray;
+  }
+  .flippable-grid-button-back  .grid-button > button {
+    background: lightgray;
+  }
 }
 
-.two-team-guessing-grid-item-selected-red > .grid-button > button {
+.two-team-guessing-grid-item-selected-red  .grid-button > button {
   background: firebrick;
 }
 
-.two-team-guessing-grid-item-selected-blue > .grid-button > button {
+.two-team-guessing-grid-item-selected-blue  .grid-button > button {
   background: royalblue;
 }
 
-.two-team-guessing-grid-item-selected-both > .grid-button > button {
-  background: linear-gradient(90deg, firebrick 50%, royalblue 50%);
+.two-team-guessing-grid-item-selected-both {
+  .flippable-grid-button-front  .grid-button > button {
+    background: linear-gradient(90deg, firebrick 50%, royalblue 50%);
+  }
+  .flippable-grid-button-back  .grid-button > button {
+    background: linear-gradient(90deg, royalblue 50%, firebrick 50%);
+  }
 }

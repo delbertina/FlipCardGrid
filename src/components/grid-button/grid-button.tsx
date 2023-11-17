@@ -15,8 +15,8 @@ function GridButton(props: GridButtonProps) {
         onClick={() => props.buttonClicked()}
         color="primary"
       >
-        <strong>{props.buttonData.order}</strong>
-        {props.buttonData.title}
+        <strong>{props.buttonData.title}</strong>
+        {props.buttonData.subtitle}
       </Button>
     </div>
   );

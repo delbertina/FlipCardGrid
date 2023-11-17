@@ -1,0 +1,44 @@
+.flippable-grid-button-wrapper {
+  height: 100%;
+  width: 100%;
+  perspective: 1000px; 
+}
+
+.flippable-grid-button {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+  
+  transform-style: preserve-3d;
+
+  transition: transform 1000ms;
+}
+
+
+.flippable-grid-button-transition-flip-exit {
+  transform: rotateY(0deg);
+}
+
+.flippable-grid-button-transition-flip-exit-active {
+  transform: rotateY(180deg);
+  transition: transform 1000ms;
+}
+
+.flippable-grid-button-transition-flip-exit-done {
+  transform: rotateY(180deg);
+}
+
+.flippable-grid-button-front, .flippable-grid-button-back {
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flippable-grid-button-back {
+  transform: rotateY(180deg);
+}

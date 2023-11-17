@@ -4,17 +4,18 @@ import { Button, IconButton, Toolbar } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { GridItem } from "../../types/grid-item";
+import { FlippableGridItem } from "../../types/grid-item";
 import {
   TwoTeamGuessingGridItems,
   TwoTeamGuessingTeams,
 } from "./two-team-guessing-data";
-import GridButton from "../../components/grid-button/grid-button";
+import FlippableGridButton from "../../components/flippable-grid-button/flippable-grid-button";
 
 interface TwoTeamGuessingPageProps {}
 
 interface TwoTeamGuessingPageState {
-  gridItems: GridItem[][];
+  gridItems: FlippableGridItem[][];
+  flippedItems: number[];
   redScore: number;
   blueScore: number;
   redSelected: number;
@@ -31,30 +32,35 @@ class TwoTeamGuessing extends React.Component<
 
     this.state = {
       gridItems: TwoTeamGuessingGridItems,
+      flippedItems: [],
       redScore: 0,
       blueScore: 0,
-      redSelected: 0,
-      blueSelected: 0,
+      redSelected: -1,
+      blueSelected: -1,
       selecting: undefined,
     };
   }
 
-  private getGridItemClasses(order: number): string {
+  private getGridItemClasses(index: number): string {
     const baseClass =
       "two-team-guessing-grid-row-item " +
       (this.state.selecting
         ? "two-team-guessing-grid-row-item-selecting "
         : "");
-    if (this.state.redSelected === order && this.state.blueSelected === order) {
+    if (this.state.redSelected === index && this.state.blueSelected === index) {
       return baseClass + "two-team-guessing-grid-item-selected-both";
     }
-    if (this.state.redSelected === order) {
+    if (this.state.redSelected === index) {
       return baseClass + "two-team-guessing-grid-item-selected-red";
     }
-    if (this.state.blueSelected === order) {
+    if (this.state.blueSelected === index) {
       return baseClass + "two-team-guessing-grid-item-selected-blue";
     }
     return baseClass + "two-team-guessing-grid-item-unselected";
+  }
+
+  private getIsFlipped(index: number): boolean {
+    return !(this.state.flippedItems.indexOf(index) > -1);
   }
 
   private toggleSelecting(team?: TwoTeamGuessingTeams): void {
@@ -63,24 +69,30 @@ class TwoTeamGuessing extends React.Component<
     });
   }
 
-  private handleGridButtonClick(order: number): void {
+  private handleGridButtonClick(index: number): void {
     if (this.state.selecting) {
       this.toggleSelecting();
       if (this.state.selecting === TwoTeamGuessingTeams.RED) {
-        if (this.state.redSelected === order) {
-          this.setState({ redSelected: 0 });
+        if (this.state.redSelected === index) {
+          this.setState({ redSelected: -1 });
         } else {
-          this.setState({ redSelected: order });
+          this.setState({ redSelected: index });
         }
       } else {
-        if (this.state.blueSelected === order) {
-          this.setState({ blueSelected: 0 });
+        if (this.state.blueSelected === index) {
+          this.setState({ blueSelected: -1 });
         } else {
-          this.setState({ blueSelected: order });
+          this.setState({ blueSelected: index });
         }
       }
+    } else {
+      const isFlipped = this.state.flippedItems.indexOf(index);
+      const newArray =
+        isFlipped > -1
+          ? [...this.state.flippedItems.filter((item) => item !== index)]
+          : [...this.state.flippedItems, index];
+      this.setState({ flippedItems: newArray });
     }
-    // flip over card
   }
 
   private incrementRedScore(inc: number): void {
@@ -95,10 +107,14 @@ class TwoTeamGuessing extends React.Component<
 
   render() {
     return (
-      <>
+      <div className="two-team-guessing">
         <Toolbar className="two-team-guessing-toolbar">
           <div className="two-team-guessing-toolbar-group two-team-guessing-toolbar-group-left">
-            <IconButton aria-label="" color="error" onClick={() => this.incrementRedScore(1)}>
+            <IconButton
+              aria-label=""
+              color="error"
+              onClick={() => this.incrementRedScore(1)}
+            >
               <AddIcon />
             </IconButton>
             <div className="two-team-guessing-toolbar-text-button">
@@ -110,7 +126,11 @@ class TwoTeamGuessing extends React.Component<
                 <strong>{this.state.redScore}</strong>
               </Button>
             </div>
-            <IconButton aria-label="" color="error" onClick={() => this.incrementRedScore(-1)}>
+            <IconButton
+              aria-label=""
+              color="error"
+              onClick={() => this.incrementRedScore(-1)}
+            >
               <RemoveIcon />
             </IconButton>
           </div>
@@ -120,7 +140,11 @@ class TwoTeamGuessing extends React.Component<
             </IconButton>
           </div>
           <div className="two-team-guessing-toolbar-group two-team-guessing-toolbar-group-right">
-            <IconButton aria-label="" color="primary" onClick={() => this.incrementBlueScore(1)}>
+            <IconButton
+              aria-label=""
+              color="primary"
+              onClick={() => this.incrementBlueScore(1)}
+            >
               <AddIcon />
             </IconButton>
             <div className="two-team-guessing-toolbar-text-button">
@@ -133,7 +157,11 @@ class TwoTeamGuessing extends React.Component<
                 <strong>{this.state.blueScore}</strong>
               </Button>
             </div>
-            <IconButton aria-label="" color="primary" onClick={() => this.incrementBlueScore(-1)}>
+            <IconButton
+              aria-label=""
+              color="primary"
+              onClick={() => this.incrementBlueScore(-1)}
+            >
               <RemoveIcon />
             </IconButton>
           </div>
@@ -143,19 +171,25 @@ class TwoTeamGuessing extends React.Component<
             <div className="two-team-guessing-grid-row" key={listIndex}>
               {itemList.map((item, itemIndex) => (
                 <div
-                  className={this.getGridItemClasses(item.order)}
+                  className={this.getGridItemClasses(itemIndex + listIndex * 5)}
                   key={itemIndex}
                 >
-                  <GridButton
-                    buttonData={item}
-                    buttonClicked={() => this.handleGridButtonClick(item.order)}
+                  <FlippableGridButton
+                    isButtonFlipped={this.getIsFlipped(
+                      itemIndex + listIndex * 5
+                    )}
+                    frontButtonData={item.front}
+                    backButtonData={item.back}
+                    buttonClicked={() =>
+                      this.handleGridButtonClick(itemIndex + listIndex * 5)
+                    }
                   />
                 </div>
               ))}
             </div>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 }
