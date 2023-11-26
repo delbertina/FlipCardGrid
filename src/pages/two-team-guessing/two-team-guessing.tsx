@@ -1,6 +1,6 @@
 import "./two-team-guessing.scss";
 import React from "react";
-import { Box, Button, IconButton, SwipeableDrawer, Toolbar } from "@mui/material";
+import { Box, Button, IconButton, SwipeableDrawer, Toolbar, makeStyles } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -113,10 +113,11 @@ class TwoTeamGuessing extends React.Component<
     this.setState({ isSettingsOpen: !this.state.isSettingsOpen });
   }
 
-  private handleResetSelections(): void {
+  private handleResetBoard(): void {
     this.setState({
       redSelected: -1,
       blueSelected: -1,
+      flippedItems: []
     });
     this.handleToggleSettings();
   }
@@ -175,9 +176,9 @@ class TwoTeamGuessing extends React.Component<
               <Button
                 variant="contained"
                 color="info"
-                onClick={() => this.handleResetSelections()}
+                onClick={() => this.handleResetBoard()}
               >
-                Reset Selections
+                Reset Board
               </Button>
               <Button
                 variant="contained"
