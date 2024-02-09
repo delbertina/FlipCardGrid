@@ -1,10 +1,23 @@
 # FlipCardGrid
-A grid of cards that flip around. For use with my version of the GMM flavor matching game.
+A grid of cards that flip around. For use with my version of the Good Mythical Morning flavor matching game with different flavors of ice cream.
+
+Two teams (or individuals) take turns tasting a dish of an unknown flavor and uses that as well as previous answers to guess the correct flavor and the correct location of that flavor on the board. Each team can earn 1 point for guessing the correct flavor and 1 point for guessing the correct location. 
 
 Made with the `react-transition-group` library.
 
-# >>> [Try it Out](https://delbertina.github.io/FlipCardGrid/) <<<
+[>>> Try it Out <<<](https://delbertina.github.io/FlipCardGrid/)
 
+<img src="https://github.com/delbertina/FlipCardGrid/assets/6349928/21937f45-6f64-4dfb-9a7b-065e4c9614ad" width="600px"/>
+
+
+<img src="https://github.com/delbertina/FlipCardGrid/assets/6349928/c33e585c-a45f-44db-8cd6-83c79f2b95ca" width="600px"/>
+
+### Planned Features
+- Refactor to have multiple games played with the same reusable components
+- A game that takes in user inputted data to display on the flip cards
+- Companion script to square off images with transparency
+
+#
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
