@@ -7,11 +7,8 @@
 .flippable-grid-button {
   height: 100%;
   width: 100%;
-
   position: relative;
-  
   transform-style: preserve-3d;
-
   transition: transform 800ms;
 }
 
@@ -47,9 +44,7 @@
 .flippable-grid-button-front, .flippable-grid-button-back {
   height: 100%;
   width: 100%;
-
   position: absolute;
-
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }

@@ -1,6 +1,6 @@
 import "./two-team-guessing.scss";
 import React from "react";
-import { Box, Button, IconButton, SwipeableDrawer, Toolbar, makeStyles } from "@mui/material";
+import { Box, Button, IconButton, SwipeableDrawer, Toolbar } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
