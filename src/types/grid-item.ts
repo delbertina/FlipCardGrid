@@ -9,6 +9,12 @@ export interface FlippableGridItem {
     back: GridItem;
 }
 
+export interface FlippableGridData {
+    id: number;
+    title: string;
+    gridItems: FlippableGridItem[][];
+}
+
 export const getImgAssetPath = (fileName: string): string => {
     const assetURL = "/imgs/";
     return process.env.PUBLIC_URL + assetURL + fileName + "";

@@ -11,3 +11,34 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.grid-game-title {
+  font-size: 2em;
+  margin: 5%;
+}
+
+.grid-game-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 5%;
+}
+
+.grid-game {
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 16px;
+  padding: 8px;
+  color: white;
+  text-shadow: black 1px 0 10px;
+  font-weight: bold;
+  background-color: goldenrod;
+  min-width: 300px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

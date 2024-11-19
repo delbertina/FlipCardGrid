@@ -26,6 +26,7 @@
 .two-team-guessing-toolbar-group {
   display: flex;
   flex-direction: row;
+  gap: 8px;
 }
 
 .two-team-guessing-toolbar-text-button > button {
@@ -85,11 +86,11 @@
 .two-team-guessing-grid-row-item {
   .flippable-grid-button-front  .grid-button > button {
     color: white;
-    text-shadow: black 1px 0 10px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
   .flippable-grid-button-back  .grid-button > button {
     color: black;
-    text-shadow: white 1px 0 10px;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   }
 }
 

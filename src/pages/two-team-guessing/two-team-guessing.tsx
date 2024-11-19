@@ -1,22 +1,27 @@
 import "./two-team-guessing.scss";
 import React from "react";
-import { Box, Button, IconButton, SwipeableDrawer, Toolbar } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import ClearIcon from "@mui/icons-material/Clear";
-import { FlippableGridItem } from "../../types/grid-item";
 import {
-  TwoTeamGuessingGridItems,
-  TwoTeamGuessingTeams,
-} from "./two-team-guessing-data";
+  Box,
+  Button,
+  IconButton,
+  SwipeableDrawer,
+  Toolbar,
+} from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import ClearIcon from "@mui/icons-material/Clear";
+import { FlippableGridData } from "../../types/grid-item";
+import { TwoTeamGuessingTeams } from "../../data/FlippableGridData";
 import FlippableGridButton from "../../components/flippable-grid-button/flippable-grid-button";
 import { grey } from "@mui/material/colors";
 
-interface TwoTeamGuessingPageProps {}
+interface TwoTeamGuessingPageProps {
+  gridData: FlippableGridData;
+}
 
 interface TwoTeamGuessingPageState {
-  gridItems: FlippableGridItem[][];
+  gridData: FlippableGridData;
   flippedItems: number[];
   redScore: number;
   blueScore: number;
@@ -34,7 +39,7 @@ class TwoTeamGuessing extends React.Component<
     super(props);
 
     this.state = {
-      gridItems: TwoTeamGuessingGridItems,
+      gridData: props.gridData,
       flippedItems: [],
       redScore: 0,
       blueScore: 0,
@@ -117,30 +122,35 @@ class TwoTeamGuessing extends React.Component<
     this.setState({
       redSelected: -1,
       blueSelected: -1,
-      flippedItems: []
+      flippedItems: [],
     });
     this.handleToggleSettings();
   }
 
   private handleToggleAllCards(): void {
     if (this.state.flippedItems.length) {
-      this.setState({flippedItems: []});
+      this.setState({ flippedItems: [] });
     } else {
-      this.setState({ flippedItems: Array.from(Array(15).keys())})
+      this.setState({ flippedItems: Array.from(Array(15).keys()) });
     }
     this.handleToggleSettings();
   }
 
   private handleTotalReset(): void {
-    console.log('So you accidentally reset the whole game ...');
+    console.log("So you accidentally reset the whole game ...");
     console.log("Here's the game state before you did that, you're welcome!");
-    console.log("Red Score: ", this.state.redScore, " :: Blue Score: ", this.state.blueScore);
+    console.log(
+      "Red Score: ",
+      this.state.redScore,
+      " :: Blue Score: ",
+      this.state.blueScore
+    );
     this.setState({
       redSelected: -1,
       blueSelected: -1,
       redScore: 0,
       blueScore: 0,
-      flippedItems: []
+      flippedItems: [],
     });
     this.handleToggleSettings();
   }
@@ -171,7 +181,9 @@ class TwoTeamGuessing extends React.Component<
                 <ClearIcon />
               </IconButton>
             </div>
-            <h4 className="two-team-guessing-settings-title">Super Secret Settings</h4>
+            <h4 className="two-team-guessing-settings-title">
+              Super Secret Settings
+            </h4>
             <div className="two-team-guessing-settings-button-container">
               <Button
                 variant="contained"
@@ -204,7 +216,7 @@ class TwoTeamGuessing extends React.Component<
               color="error"
               onClick={() => this.incrementRedScore(1)}
             >
-              <AddIcon />
+              <AddCircleIcon />
             </IconButton>
             <div className="two-team-guessing-toolbar-text-button">
               <Button
@@ -220,11 +232,14 @@ class TwoTeamGuessing extends React.Component<
               color="error"
               onClick={() => this.incrementRedScore(-1)}
             >
-              <RemoveIcon />
+              <RemoveCircleIcon />
             </IconButton>
           </div>
           <div className="two-team-guessing-toolbar-group two-team-guessing-toolbar-group-middle">
-            <IconButton aria-label="settings" onClick={() => this.handleToggleSettings()}>
+            <IconButton
+              aria-label="settings"
+              onClick={() => this.handleToggleSettings()}
+            >
               <SettingsIcon />
             </IconButton>
           </div>
@@ -234,7 +249,7 @@ class TwoTeamGuessing extends React.Component<
               color="primary"
               onClick={() => this.incrementBlueScore(1)}
             >
-              <AddIcon />
+              <AddCircleIcon />
             </IconButton>
             <div className="two-team-guessing-toolbar-text-button">
               <Button
@@ -251,12 +266,12 @@ class TwoTeamGuessing extends React.Component<
               color="primary"
               onClick={() => this.incrementBlueScore(-1)}
             >
-              <RemoveIcon />
+              <RemoveCircleIcon />
             </IconButton>
           </div>
         </Toolbar>
         <div className="two-team-guessing-grid">
-          {this.state.gridItems.map((itemList, listIndex) => (
+          {this.state.gridData.gridItems.map((itemList, listIndex) => (
             <div className="two-team-guessing-grid-row" key={listIndex}>
               {itemList.map((item, itemIndex) => (
                 <div
