@@ -27,7 +27,7 @@ export const IceCream2023: FlippableGridData = {
       {
         front: { title: "5" },
         back: {
-          title: "Peanut Butter Fudge Pretzel",
+          title: "PB Fudge Pretzel",
           image_src: "pb-fudge-pretzel.png",
         },
       },
@@ -36,7 +36,7 @@ export const IceCream2023: FlippableGridData = {
       {
         front: { title: "6" },
         back: {
-          title: "Chocolate Peanut Butter",
+          title: "Chocolate PB",
           image_src: "chocolate-pb.png",
         },
       },
@@ -129,7 +129,7 @@ export const IceCream2024: FlippableGridData = {
       },
       {
         front: { title: "9" },
-        back: { title: "Peanut Butter Brownie Honeycomb", image_src: "peanutbutter-brownie-honeycomb.png" },
+        back: { title: "PB Brownie Honeycomb", image_src: "peanutbutter-brownie-honeycomb.png" },
       },
       {
         front: { title: "10" },
@@ -143,7 +143,7 @@ export const IceCream2024: FlippableGridData = {
       },
       {
         front: { title: "12" },
-        back: { title: "Salted Chocolate Truffle", image_src: "salted-chocolate-truffle.png" },
+        back: { title: "Salted Choco. Truffle", image_src: "salted-chocolate-truffle.png" },
       },
       {
         front: { title: "13" },
