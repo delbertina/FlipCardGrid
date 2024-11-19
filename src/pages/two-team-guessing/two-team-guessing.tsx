@@ -50,6 +50,14 @@ class TwoTeamGuessing extends React.Component<
     };
   }
 
+  private toggleFullscreen(): void {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
+  }
+
   private getGridItemClasses(index: number): string {
     const baseClass =
       "two-team-guessing-grid-row-item " +
@@ -205,6 +213,15 @@ class TwoTeamGuessing extends React.Component<
                 onClick={() => this.handleTotalReset()}
               >
                 Total Reset
+              </Button>
+            </div>
+            <div className="two-team-guessing-settings-button-container">
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => this.toggleFullscreen()}
+              >
+                Toggle Fullscreen
               </Button>
             </div>
           </Box>
