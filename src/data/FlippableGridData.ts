@@ -95,76 +95,85 @@ export const IceCream2024: FlippableGridData = {
     [
       {
         front: { title: "1" },
-        back: { title: "King Alphonso", image_src: "alphonso-mango.png" },
+        back: { title: "Cookie Butter", image_src: "cookie-butter.png" },
       },
       {
         front: { title: "2" },
-        back: { title: "Apple Cinnamon", image_src: "apple-cinn.png" },
+        back: {
+          title: "Black Cherry Chip",
+          image_src: "black-cherry-chip.png",
+        },
       },
       {
         front: { title: "3" },
-        back: { title: "Black Cherry Chip", image_src: "black-cherry-chip.png" },
+        back: {
+          title: "Salted Choco. Truffle",
+          image_src: "salted-chocolate-truffle.png",
+        },
       },
       {
         front: { title: "4" },
-        back: { title: "Malai", image_src: "buffalo-milk.png" },
+        back: { title: "Thai Iced Tea", image_src: "thai-iced-tea.png" },
       },
       {
         front: { title: "5" },
-        back: { title: "Butterscotch", image_src: "butterscotch.png" },
+        back: { title: "King Alphonso", image_src: "alphonso-mango.png" },
       },
     ],
     [
       {
         front: { title: "6" },
-        back: { title: "Coffee Affogato", image_src: "coffee-affogato.png" },
+        back: { title: "Strawberry", image_src: "strawberry.png" },
       },
       {
         front: { title: "7" },
-        back: { title: "Cookie Butter", image_src: "cookie-butter.png" },
+        back: {
+          title: "PB Brownie Honeycomb",
+          image_src: "peanutbutter-brownie-honeycomb.png",
+        },
       },
       {
         front: { title: "8" },
-        back: { title: "Rajbhog", image_src: "honey-cardamom-saffron.png" },
+        back: { title: "Malai", image_src: "buffalo-milk.png" },
       },
       {
         front: { title: "9" },
-        back: { title: "PB Brownie Honeycomb", image_src: "peanutbutter-brownie-honeycomb.png" },
+        back: {
+          title: "Praline Butter Cake",
+          image_src: "praline-butter-cake.png",
+        },
       },
       {
         front: { title: "10" },
-        back: { title: "Praline Butter Cake", image_src: "praline-butter-cake.png" },
+        back: { title: "Red Velvet", image_src: "red-velvet.png" },
       },
     ],
     [
       {
         front: { title: "11" },
-        back: { title: "Red Velvet", image_src: "red-velvet.png" },
+        back: { title: "Coffee Affogato", image_src: "coffee-affogato.png" },
       },
       {
         front: { title: "12" },
-        back: { title: "Salted Choco. Truffle", image_src: "salted-chocolate-truffle.png" },
-      },
-      {
-        front: { title: "13" },
         back: { title: "Pickle", image_src: "pickle.png" },
       },
       {
+        front: { title: "13" },
+        back: { title: "Apple Cinnamon", image_src: "apple-cinn.png" },
+      },
+      {
         front: { title: "14" },
-        back: { title: "Strawberry", image_src: "strawberry.png" },
+        back: { title: "Butterscotch", image_src: "butterscotch.png" },
       },
       {
         front: { title: "15" },
-        back: { title: "Thai Iced Tea", image_src: "thai-iced-tea.png" },
+        back: { title: "Rajbhog", image_src: "honey-cardamom-saffron.png" },
       },
     ],
   ],
 };
 
-export const Games: FlippableGridData[] = [
-  IceCream2023,
-  IceCream2024,
-];
+export const Games: FlippableGridData[] = [IceCream2023, IceCream2024];
 
 export enum TwoTeamGuessingTeams {
   RED = "RED",
