@@ -173,7 +173,80 @@ export const IceCream2024: FlippableGridData = {
   ],
 };
 
-export const Games: FlippableGridData[] = [IceCream2023, IceCream2024];
+export const USStates2025: FlippableGridData = {
+  id: 2,
+  title: "US States 2025",
+  gridItems: [
+    [
+      {
+        front: { title: "1" },
+        back: { title: "Georgia", image_src: "" },
+      },
+      {
+        front: { title: "2" },
+        back: { title: "Texas", image_src: "" },
+      },
+      {
+        front: { title: "3" },
+        back: { title: "Florida", image_src: "" },
+      },
+      {
+        front: { title: "4" },
+        back: { title: "Nevada", image_src: "" },
+      },
+      {
+        front: { title: "5" },
+        back: { title: "Ilinois", image_src: "" },
+      },
+    ],
+    [
+      {
+        front: { title: "6" },
+        back: { title: "Nebraska", image_src: "" },
+      },
+      {
+        front: { title: "7" },
+        back: { title: "Minnesota", image_src: "" },
+      },
+      {
+        front: { title: "8" },
+        back: { title: "Louisiana", image_src: "" },
+      },
+      {
+        front: { title: "9" },
+        back: { title: "Idaho", image_src: "" },
+      },
+      {
+        front: { title: "10" },
+        back: { title: "California", image_src: "" },
+      },
+    ],
+    [
+      {
+        front: { title: "11" },
+        back: { title: "Missouri", image_src: "" },
+      },
+      {
+        front: { title: "12" },
+        back: { title: "Kentucky", image_src: "" },
+      },
+      {
+        front: { title: "13" },
+        back: { title: "Montanna", image_src: "" },
+      },
+      {
+        front: { title: "14" },
+        back: { title: "Tennessee", image_src: "" },
+      },
+      {
+        front: { title: "15" },
+        back: { title: "Oklahoma", image_src: "" },
+      },
+    ],
+  ],
+};
+
+export const Games: FlippableGridData[] = [IceCream2023, IceCream2024, USStates2025];
 
 export enum TwoTeamGuessingTeams {
   RED = "RED",
